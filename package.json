@@ -23,11 +23,11 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "env-cmd -f .env.ci && react-scripts start",
+    "start": "dotenv -f .env.ci && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:ci": "env-cmd -f .env.ci react-scripts build"
+    "build:ci": "dotenv -f .env.ci node src/check_env.js"
   },
   "eslintConfig": {
     "extends": [
