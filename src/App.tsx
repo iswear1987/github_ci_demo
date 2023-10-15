@@ -18,6 +18,7 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React 1 + 1 = {sum([1, 1])}
+          <p>backend env is {process.env.REACT_APP_BACKEND}</p>
         </a>
       </header>
     </div>
