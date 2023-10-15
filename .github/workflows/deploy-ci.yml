@@ -1,0 +1,44 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest] # , windows-latest, macos-latest]
+        node: [18.x] # [16.x, 18.x]
+
+    steps:
+    - name: Check out the project
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node }}
+
+    - name: Get branch name
+      shell: bash
+      run: |
+        echo "BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
+        echo "PUBLIC_URL=/${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_ENV
+
+    - name: Install yarn
+      run: npm install --global yarn
+
+    - name: Build
+      run: yarn && yarn build:ci
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build
+        branch: deploy
+        target-folder: ${{ env.BRANCH_NAME }}
