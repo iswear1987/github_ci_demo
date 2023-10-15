@@ -11,8 +11,10 @@
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "dotenv-cli": "^7.3.0",
+    "env-cmd": "^10.1.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -21,11 +23,11 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "dotenv -e .env.ci react-scripts start",
+    "start": "env-cmd -f .env.ci && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:ci": "dotenv -e .env.ci react-scripts build"
+    "build:ci": "env-cmd -f .env.ci react-scripts build"
   },
   "eslintConfig": {
     "extends": [
