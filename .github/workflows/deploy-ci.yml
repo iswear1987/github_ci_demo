@@ -41,4 +41,4 @@ jobs:
       with:
         folder: build
         branch: deploy
-        target-folder: "."
+        target-folder: ${{ env.BRANCH_NAME }}
