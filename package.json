@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:ci": "dotenv -f .env.ci node src/check_env.js"
+    "build:ci": "dotenv -f .env.ci react-scripts build"
   },
   "eslintConfig": {
     "extends": [
