@@ -13,7 +13,6 @@ jobs:
       matrix:
         node: [18.x] # [16.x, 18.x]
 
-    
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,7 +26,7 @@ jobs:
         run: yarn
 
       - name: Build
-        run: yarn build
+        run: yarn build:ci
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
