@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React 1 + 1 = {sum([1, 1])}
+          Learn React 1 + 2 = {sum([1, 2])}
           <p>backend env is {process.env.REACT_APP_BACKEND}</p>
         </a>
       </header>
