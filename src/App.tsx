@@ -19,6 +19,7 @@ function App() {
         >
           Learn React 1 + 2 = {sum([1, 2])}
           <p>backend env is {process.env.REACT_APP_BACKEND}</p>
+          <p>build at ${process.env.REACT_APP_BUILD_TIME}</p>
         </a>
       </header>
     </div>
